@@ -1,0 +1,31 @@
+server:
+  port: 4000
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: never
+    include-exception: false
+
+spring:
+  datasource:
+    url: jdbc:postgresql://abul.db.elephantsql.com/zeawrgxi
+    username: zeawrgxi
+    password: RC8IPMsXQMACZdQR3woRV03WywXO12DU
+    hikari:
+      maximum-pool-size: 10
+      idle-timeout: 30000 # Adjust as per your requirement
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+        use_sql_comments: true
+        generate_statistics: true
+    show-sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
