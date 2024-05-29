@@ -25,8 +25,8 @@ public class Game {
     @Column(name = "score")
     private int score;
 
-    @Column(name = "word")
-    private String word;
+    @Column(name = "wordle")
+    private String wordle;
 
     @Column(name = "guesses")
     private int guesses;

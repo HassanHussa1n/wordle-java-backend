@@ -14,6 +14,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("games")
 public class GameController {
 
@@ -43,7 +44,7 @@ public class GameController {
 
     @PostMapping
     public ResponseEntity<CustomResponse> createGame(@RequestBody Game game) {
-        if (game.getGameDate() == null || game.getWord() == null || game.getGuesses() == 0 || game.getUser() == null) {
+        if (game.getGameDate() == null || game.getWordle() == null || game.getGuesses() == 0 || game.getUser() == null) {
             CustomResponse errResponse = new CustomResponse("Error", new Error("Check if all fields are correct!"));
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errResponse);
         }
@@ -78,11 +79,11 @@ public class GameController {
         else {
             gameToUpdate.setScore(game.getScore());
         }
-        if (game.getWord() == null) {
-            gameToUpdate.setWord(previousGame.getWord());
+        if (game.getWordle() == null) {
+            gameToUpdate.setWordle(previousGame.getWordle());
         }
         else {
-            gameToUpdate.setWord(game.getWord());
+            gameToUpdate.setWordle(game.getWordle());
         }
         if (game.getGuesses() == 0) {
             gameToUpdate.setGuesses(previousGame.getGuesses());

@@ -13,6 +13,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.ArrayList;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:5173")
 @RequestMapping("users")
 public class UserController {
 
